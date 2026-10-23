@@ -1,0 +1,53 @@
+{
+  "name": "@revtelic/mcp",
+  "version": "1.0.0",
+  "description": "Revtelic Model Context Protocol (MCP) server — zero-friction B2B sales deal analysis for Claude, Cursor, and AI agents",
+  "license": "Apache-2.0",
+  "author": "Revtelic <contact@revtelic.com> (https://revtelic.com)",
+  "homepage": "https://revtelic.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revtelic/revtelic-mcp.git",
+    "directory": "typescript"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "revtelic",
+    "sales-intelligence",
+    "deal-analysis",
+    "claude",
+    "cursor",
+    "llm-tools"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "revtelic-mcp": "./bin/revtelic-mcp.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node ./dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

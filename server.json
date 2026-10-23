@@ -1,0 +1,100 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "co.revtelic/mcp",
+  "title": "Revtelic Deal Intelligence",
+  "description": "Zero-friction B2B sales deal analysis. Uncover deal health scores, brutal truth, hidden risks, stakeholder maps, and winning next actions directly from call transcripts or meeting notes.",
+  "version": "1.0.0",
+  "websiteUrl": "https://revtelic.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revtelic/revtelic-mcp.git"
+  },
+  "packages": [
+    {
+      "registry": "npm",
+      "package": "@revtelic/mcp",
+      "version": "1.0.0",
+      "command": "npx",
+      "args": ["-y", "@revtelic/mcp"]
+    },
+    {
+      "registry": "pypi",
+      "package": "revtelic",
+      "version": "1.0.0",
+      "command": "uvx",
+      "args": ["revtelic-mcp"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.revtelic.com/api/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional Bearer API key to automatically save analyses to your Revtelic workspace",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "type": "sse",
+      "url": "https://api.revtelic.com/api/v1/mcp/sse",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional Bearer API key to automatically save analyses to your Revtelic workspace",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "analyze_deal",
+      "description": "Analyze raw sales call transcripts or meeting notes to get deal health, risks, stakeholders, and next best actions (zero-friction, guest mode supported).",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_deal_health",
+      "description": "Assess 0-100 health score and signals for a saved deal opportunity in Revtelic.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_deal_risks",
+      "description": "Identify hidden and explicit blockers, technical, stakeholder, and commercial risks for a saved deal.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_stakeholders",
+      "description": "Assess champion strength, economic buyer access, and missing decision makers.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_next_best_action",
+      "description": "Determine the single highest-priority action to progress or close a deal.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_deals",
+      "description": "List active dealboards from the connected Revtelic workspace.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ]
+}
